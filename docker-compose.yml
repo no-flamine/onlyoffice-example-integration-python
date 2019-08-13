@@ -1,0 +1,14 @@
+# IT a docker-compose file for start all palladium services.
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    tty: true
+    volumes:
+      - .:/example
+  documentserver:
+    image: onlyoffice/documentserver
+    ports:
+      - "80:80"
