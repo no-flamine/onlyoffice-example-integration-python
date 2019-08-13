@@ -1,5 +1,5 @@
-from bottle import route, run, template, get, post, static_file, request  # подключение фреймворка и необходимых компонентов
-from os import listdir  # подключение библиотеки для просмотра каталогов
+from bottle import route, run, template, get, post, static_file, request
+from os import listdir
 import json
 import pprint
 import requests
@@ -10,12 +10,12 @@ editor_url = config['editor']['protocol'] + "://" + config['editor']['url'] + ":
 sample_files = [f for f in listdir('files')]
 
 
-@route('/')  # настройка роутинга для запросов на /
+@route('/')
 def index():
     return template('index.tpl',
                     editor_url=editor_url,
                     app_url=app_url,
-                    sample_files=sample_files)  # показываем шаблон в ответ на запрос
+                    sample_files=sample_files)
 
 
 @get("/files/<filepath:re:.*\.*>")
@@ -32,4 +32,4 @@ def callback():
     return "{\"error\":0}"
 
 
-run(host="0.0.0.0", port="8080")  # запускаем приложение на 8080 порте
+run(host="0.0.0.0", port="8080")
