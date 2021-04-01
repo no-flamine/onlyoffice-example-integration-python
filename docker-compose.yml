@@ -1,4 +1,3 @@
-# IT a docker-compose file for start all palladium services.
 version: '3'
 services:
   app:
